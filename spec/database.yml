@@ -1,0 +1,19 @@
+sqlite3:
+  adapter: sqlite3
+  database: be_taskable.sqlite3
+
+mysql:
+  adapter: mysql2
+  hostname: localhost
+  username: root
+  password:
+  database: be_taskable
+  charset: utf8
+
+postgresql:
+  adapter: postgresql
+  hostname: localhost
+  username: postgres
+  password:
+  database: be_taskable
+  encoding: utf8
