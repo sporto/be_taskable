@@ -1,6 +1,8 @@
 BeTaskable
 ==========
 
+[![Build Status](https://travis-ci.org/sporto/be_taskable.png?branch=master)](https://travis-ci.org/sporto/be_taskable)
+
 BeTaskable is a small framework for creating and maintaining tasks / chores / assignments. Meaning something that someone has to do.
 
 Concepts
