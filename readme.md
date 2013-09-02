@@ -274,6 +274,13 @@ Also a genator for task resolvers is provided:
 
 	rails g be_taskable:resolver document publish
 
+
+Testing this Gem
+----------------
+
+	bundle
+	rspec
+
 License
 -------
 

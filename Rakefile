@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
 	gem.name = "be_taskable"
-	gem.homepage = "http://github.com/sporto/gbg_tasks"
+	gem.homepage = "http://github.com/sporto/be_taskable"
 	gem.license = "MIT"
 	gem.summary = %Q{Mini framework for creating and maintaining user tasks}
 	gem.description = %Q{BeTaskable is a small framework for creating and maintaining tasks / chores / assignments. Meaning something that someone has to do.}

@@ -6,7 +6,6 @@ gem 'state_machine', '~> 1.1'
 group :development do
 	gem 'sqlite3'
 	gem 'rspec-rails'
-	# gem 'rspec', '~> 2.12'
 	gem 'rspec-steps'
 	gem 'guard'
 	gem 'guard-rspec'
