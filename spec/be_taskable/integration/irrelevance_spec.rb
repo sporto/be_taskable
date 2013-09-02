@@ -19,16 +19,16 @@ describe "Irrelevance" do
 		task
 	end
 
-	steps "irrelevant" do
-
-		it "creates the assigments when relevant" do
+	it "works" do
+		#################################################
+		# "creates the assigments when relevant"
 			expect(task).to be_open
 
 			# there should be two assigments now
 			expect(BeTaskable::TaskAssignment.count).to eq(2)
-		end
 
-		it "deletes the assignments when irrelevant" do
+		#################################################
+		# "deletes the assignments when irrelevant"
 			# expect(BeTaskable::TaskAssignment.count).to eq(2)
 
 			# make the task irrelevant
@@ -38,9 +38,9 @@ describe "Irrelevance" do
 
 			expect(task).to be_irrelevant
 			expect(BeTaskable::TaskAssignment.count).to eq(0)
-		end
 
-		it "recreates the assignments when relevant again" do
+		#################################################
+		# "recreates the assignments when relevant again"
 
 			# make task relevant again
 			resolver.unstub(:is_task_relevant?)
@@ -50,9 +50,10 @@ describe "Irrelevance" do
 			expect(task).to be_open
 			# there should be two assigments now
 			expect(BeTaskable::TaskAssignment.count).to eq(2)
-		end
+		
+		#################################################
+		# "doesnt delete already completed assignments"
 
-		it "doesnt delete already completed assignments" do
 			expect(BeTaskable::TaskAssignment.count).to eq(2)
 
 			resolver.stub(:is_task_relevant?).and_return(false)
@@ -63,8 +64,7 @@ describe "Irrelevance" do
 			task.refresh
 
 			expect(BeTaskable::TaskAssignment.count).to eq(1)
-		end
-
+		
 	end
 	
 end

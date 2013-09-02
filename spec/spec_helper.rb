@@ -9,7 +9,6 @@ require 'active_record'
 require 'action_view'
 require 'action_controller'
 require 'rspec/rails'
-require 'rspec-steps'
 
 # Make sure the right version of bundler is loaded
 begin
