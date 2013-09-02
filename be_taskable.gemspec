@@ -9,18 +9,19 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sebastian Porto"]
-  s.date = "2013-05-10"
+  s.date = "2013-09-02"
   s.description = "BeTaskable is a small framework for creating and maintaining tasks / chores / assignments. Meaning something that someone has to do."
   s.email = "sebasporto@gmail.com"
+  s.extra_rdoc_files = [
+    "LICENSE.txt"
+  ]
   s.files = [
     ".document",
-    ".gitignore",
     ".rspec",
     "Gemfile",
     "Gemfile.lock",
     "Guardfile",
     "LICENSE.txt",
-    "MIT-LICENSE",
     "Rakefile",
     "VERSION",
     "be_taskable.gemspec",
@@ -51,7 +52,7 @@ Gem::Specification.new do |s|
     "spec/schema.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/sporto/gbg_tasks"
+  s.homepage = "http://github.com/sporto/be_taskable"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
