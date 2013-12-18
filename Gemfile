@@ -9,6 +9,6 @@ group :development do
 	gem 'guard'
 	gem 'guard-rspec', '~> 3.0'
 	gem 'bundler', '~> 1.2'
-	gem 'jeweler', '~> 1.8.4'
+	gem 'jeweler', '~> 1.8'
 	gem 'database_cleaner', '~> 1.1'
 end

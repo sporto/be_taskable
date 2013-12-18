@@ -286,7 +286,8 @@ Testing this Gem
 Deploying
 ---------
 
-
+	rake version:bump:minor
+	rake release
 
 
 License
