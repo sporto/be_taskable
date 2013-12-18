@@ -10,6 +10,7 @@ module BeTaskable
 	end
 end
 
+require "state_machine"
 require "be_taskable/taskable"
 require "be_taskable/tasker"
 require "be_taskable/task"

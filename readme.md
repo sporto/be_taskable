@@ -287,6 +287,7 @@ Deploying
 ---------
 
 	rake version:bump:minor
+	rake version:bump:patch
 	rake release
 
 
