@@ -4,10 +4,10 @@ module BeTaskable
 		has_many :assignments, class_name: '::BeTaskable::TaskAssignment', dependent: :destroy
 		belongs_to :taskable, polymorphic: true
 
-		scope :completed, where('completed_at IS NOT NULL')
-		scope :uncompleted, where(completed_at: nil)
-		scope :expired, where('expired_at IS NOT NULL')
-		scope :unexpired, where(expired_at: nil)
+		scope :completed,   ->{ where('completed_at IS NOT NULL') }
+		scope :uncompleted, ->{ where(completed_at: nil) }
+		scope :expired,     ->{ where('expired_at IS NOT NULL') }
+		scope :unexpired,   ->{ where(expired_at: nil) }
 		# scope :overdue, ->() { where('complete_by IS NOT NULL AND completed_at = NULL AND completed_at < ?', DateTime.now) }
 
 		validates :taskable_type, presence: true

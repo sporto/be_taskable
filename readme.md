@@ -283,6 +283,12 @@ Testing this Gem
 	bundle
 	rspec
 
+Deploying
+---------
+
+
+
+
 License
 -------
 

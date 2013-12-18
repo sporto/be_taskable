@@ -19,7 +19,7 @@ describe 'BeTaskable::Task' do
 		it "finds completed tasks" do
 			task1 = BeTaskable::Task.create(taskable: taskable, action: 'update', completed_at: DateTime.now)
 			task2 = BeTaskable::Task.create(taskable: taskable, action: 'review')
-			res = BeTaskable::Task.completed.all
+			res = BeTaskable::Task.completed
 			expect(res).to eq([task1])
 		end
 	end
@@ -28,7 +28,7 @@ describe 'BeTaskable::Task' do
 		it "finds uncompleted tasks" do
 			task1 = BeTaskable::Task.create(taskable: taskable, action: 'update', completed_at: DateTime.now)
 			task2 = BeTaskable::Task.create(taskable: taskable, action: 'review')
-			res = BeTaskable::Task.uncompleted.all
+			res = BeTaskable::Task.uncompleted
 			expect(res).to eq([task2])
 		end
 	end
@@ -37,7 +37,7 @@ describe 'BeTaskable::Task' do
 		it "finds expired tasks" do
 			task1 = BeTaskable::Task.create(taskable: taskable, action: 'update', expired_at: DateTime.now)
 			task2 = BeTaskable::Task.create(taskable: taskable, action: 'review')
-			res = BeTaskable::Task.expired.all
+			res = BeTaskable::Task.expired
 			expect(res).to eq([task1])
 		end
 	end
@@ -48,7 +48,7 @@ describe 'BeTaskable::Task' do
 			task2 = BeTaskable::Task.create(taskable: taskable, action: 'review')
 			# expect(task1).to be_persisted
 			# expect(task2).to be_persisted
-			res = BeTaskable::Task.unexpired.all
+			res = BeTaskable::Task.unexpired
 			expect(res).to eq([task2])
 		end
 	end
@@ -58,7 +58,7 @@ describe 'BeTaskable::Task' do
 			task1 = BeTaskable::Task.create(taskable: taskable, action: 'update', expired_at: DateTime.now)
 			task2 = BeTaskable::Task.create(taskable: taskable, action: 'update', completed_at: DateTime.now)
 			task3 = BeTaskable::Task.create(taskable: taskable, action: 'review')
-			res = BeTaskable::Task.current.all
+			res = BeTaskable::Task.current
 			expect(res).to eq([task3])
 		end
 	end

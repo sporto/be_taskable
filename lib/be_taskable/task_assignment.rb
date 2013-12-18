@@ -3,15 +3,15 @@ module BeTaskable
 		belongs_to :task, class_name: '::BeTaskable::Task'
 		belongs_to :assignee, polymorphic: true
 
-		scope :completed, where('completed_at IS NOT NULL')
-		scope :uncompleted, where(completed_at: nil)
-		scope :expired, where('expired_at IS NOT NULL')
-		scope :unexpired, where(expired_at: nil)
-		scope :unconfirmed, where(confirmed: [nil, false])
-		scope :visible, ->{ where('visible_at IS NULL OR visible_at < ?', DateTime.now.to_formatted_s(:db)) }
-		scope :overdue, ->{ where('complete_by < ? AND completed_at IS NULL', DateTime.now.to_formatted_s(:db)) }
+		scope :completed,   ->{ where('completed_at IS NOT NULL') }
+		scope :uncompleted, ->{ where(completed_at: nil) }
+		scope :expired,     ->{ where('expired_at IS NOT NULL') }
+		scope :unexpired,   ->{ where(expired_at: nil) }
+		scope :unconfirmed, ->{ where(confirmed: [nil, false]) }
+		scope :visible,     ->{ where('visible_at IS NULL OR visible_at < ?', DateTime.now.to_formatted_s(:db)) }
+		scope :overdue,     ->{ where('complete_by < ? AND completed_at IS NULL', DateTime.now.to_formatted_s(:db)) }
 		scope :not_overdue, ->{ where('complete_by IS NULL OR complete_by > ?', DateTime.now.to_formatted_s(:db)) }
-		scope :enacted, where(enacted: true)
+		scope :enacted,     ->{ where(enacted: true) }
 
 		def self.current
 			self.uncompleted.unexpired.not_overdue.visible

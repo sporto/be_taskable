@@ -15,7 +15,7 @@ describe 'BeTaskable::TaskAssignment' do
 		it "finds the completed" do
 			a1 = BeTaskable::TaskAssignment.create(completed_at: DateTime.now)
 			a2 = BeTaskable::TaskAssignment.create()
-			res = BeTaskable::TaskAssignment.completed.all
+			res = BeTaskable::TaskAssignment.completed
 			expect(res).to eq([a1])
 		end
 	end
@@ -24,7 +24,7 @@ describe 'BeTaskable::TaskAssignment' do
 		it "finds the uncompleted" do
 			a1 = BeTaskable::TaskAssignment.create(completed_at: DateTime.now)
 			a2 = BeTaskable::TaskAssignment.create()
-			res = BeTaskable::TaskAssignment.uncompleted.all
+			res = BeTaskable::TaskAssignment.uncompleted
 			expect(res).to eq([a2])
 		end
 	end
@@ -34,7 +34,7 @@ describe 'BeTaskable::TaskAssignment' do
 			a1 = BeTaskable::TaskAssignment.create(complete_by: DateTime.now - 1.day)
 			a2 = BeTaskable::TaskAssignment.create(complete_by: DateTime.now + 1.day)
 			a3 = BeTaskable::TaskAssignment.create()
-			res = BeTaskable::TaskAssignment.overdue.all
+			res = BeTaskable::TaskAssignment.overdue
 			expect(res).to eq([a1])
 		end
 	end
@@ -44,7 +44,7 @@ describe 'BeTaskable::TaskAssignment' do
 			a1 = BeTaskable::TaskAssignment.create(complete_by: DateTime.now - 1.day)
 			a2 = BeTaskable::TaskAssignment.create(complete_by: DateTime.now + 1.day)
 			a3 = BeTaskable::TaskAssignment.create()
-			res = BeTaskable::TaskAssignment.not_overdue.all
+			res = BeTaskable::TaskAssignment.not_overdue
 			expect(res).to eq([a2, a3])
 		end
 	end
@@ -54,7 +54,7 @@ describe 'BeTaskable::TaskAssignment' do
 			a1 = BeTaskable::TaskAssignment.create(visible_at: DateTime.now - 1.day)
 			a2 = BeTaskable::TaskAssignment.create()
 			a3 = BeTaskable::TaskAssignment.create(visible_at: DateTime.now + 1.day)
-			res = BeTaskable::TaskAssignment.visible.all
+			res = BeTaskable::TaskAssignment.visible
 			expect(res).to eq([a1, a2])
 		end
 	end
@@ -63,7 +63,7 @@ describe 'BeTaskable::TaskAssignment' do
 		it "finds the expired" do
 			a1 = BeTaskable::TaskAssignment.create(expired_at: DateTime.now - 1.day)
 			a2 = BeTaskable::TaskAssignment.create()
-			res = BeTaskable::TaskAssignment.expired.all
+			res = BeTaskable::TaskAssignment.expired
 			expect(res).to eq([a1])
 		end
 	end
@@ -72,7 +72,7 @@ describe 'BeTaskable::TaskAssignment' do
 		it "finds the unexpired" do
 			a1 = BeTaskable::TaskAssignment.create(expired_at: DateTime.now - 1.day)
 			a2 = BeTaskable::TaskAssignment.create()
-			res = BeTaskable::TaskAssignment.unexpired.all
+			res = BeTaskable::TaskAssignment.unexpired
 			expect(res).to eq([a2])
 		end
 	end
@@ -91,27 +91,27 @@ describe 'BeTaskable::TaskAssignment' do
 		end
 
 		it "finds them" do
-			res = BeTaskable::TaskAssignment.current.all
+			res = BeTaskable::TaskAssignment.current
 			expect(res).to eq([a1, a4])
 		end
 
 		it "doesnt find expired" do
-			res = BeTaskable::TaskAssignment.current.all
+			res = BeTaskable::TaskAssignment.current
 			expect(res).not_to include(a2)
 		end
 
 		it "doesnt find overdue" do
-			res = BeTaskable::TaskAssignment.current.all
+			res = BeTaskable::TaskAssignment.current
 			expect(res).not_to include(a3)
 		end
 
 		it "doesnt find completed" do
-			res = BeTaskable::TaskAssignment.current.all
+			res = BeTaskable::TaskAssignment.current
 			expect(res).not_to include(a5)
 		end
 
 		it "doesnt find invisibles" do
-			res = BeTaskable::TaskAssignment.current.all
+			res = BeTaskable::TaskAssignment.current
 			expect(res).not_to include(a6)
 		end
 
